@@ -56,13 +56,13 @@ nav a:hover {
 /* Hide the checkbox and hamburger icon on desktop */
 nav input[type="checkbox"],
 nav label {
-  
+  display: none;
 }
 
 /* ------------------------------
    MOBILE HAMBURGER MENU
 --------------------------------- */
-@media (max-width: ) {
+@media (max-width: 48rem) {
 
   header nav {
     margin-left: auto;
@@ -71,32 +71,43 @@ nav label {
 
   /* Show the hamburger icon */
   header nav label {
-      /* Make the label visible on smaller screens */
-      /* Change the cursor so it looks clickable */
-      /* Set the icon color */
-      /* Increase the icon size */
+    display: block;  /* Make the label visible on smaller screens */
+    cursor: pointer;  /* Change the cursor so it looks clickable */
+    color: white;  /* Set the icon color */
+    font-size: 250%;/* Increase the icon size */
+    line-height: 1;
+    margin-left: auto;
   }
 
   /* Hide menu by default */
   nav ul {
-      /* Start with the menu collapsed */
+    max-height: 0;
+    overflow: hidden;  /* Start with the menu collapsed */
       /* Hide content that extends past collapsed height */
-      /* Stack menu items vertically */
+    flex-direction: column;  /* Stack menu items vertically */
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(16, 42, 67, 0.3);
+    margin-top: 1.75rem;
+    min-width: 250px;
+    transition: max-height 0.5s ease-in-out;
   }
 
   /* Open menu when checkbox is checked */
   /* Increase max-height if your menu has more links */
   #menu:checked + ul {
-    
+    max-height: 300px;
   }
 
   /* Mobile menu items */
   nav ul li {
     text-align: center;
+    padding: 0;
+    border-bottom: 1px solid #2f6f91;
   }
 
   nav ul li:last-child {
-    
+    border-bottom: none;
   }
 
   nav ul li a {
@@ -105,9 +116,70 @@ nav label {
     padding: 0.8rem 2rem; /* Adds more clickable space inside link */
     border-radius: 0; /* Removes rounded corners so mobile dropdown has straight edges */
     font-size: 125%; /* Adjusts size of mobile menu links */
-    color: ; /* Text color for mobile menu links */
+    color: #102a43; /* Text color for mobile menu links */
+  }
+/* HEADER */
+header {
+  padding: 1.5rem 2.5rem;
+  display: flex;
+  align-items: center;
+  background-color: #1e3a5f; /* NEW color */
+}
+
+header h1 {
+  color: #ffcc70; /* NEW color */
+  font-size: 220%; /* slightly bigger */
+}
+
+/* NAV LINKS */
+nav a {
+  padding: 0.8rem 1.2rem;
+  border-radius: 1rem; /* changed shape */
+  color: #e0f2ff;
+  font-size: 115%;
+  transition: all 0.4s ease;
+}
+
+nav a:hover {
+  background-color: #ffcc70; /* NEW hover color */
+  color: #1e3a5f;
+}
+
+/* MOBILE */
+@media (max-width: 48rem) {
+
+  header nav label {
+    font-size: 300%; /* BIGGER hamburger icon */
+    color: #ffcc70;
   }
 
+  nav ul {
+    background-color: #ffffff;
+    border-radius: 1.5rem; /* more rounded */
+    margin-top: 2rem;
+    min-width: 280px; /* wider dropdown */
+    padding: 0.5rem 0; /* added spacing */
+  }
+
+  nav ul li {
+    border-bottom: 1px solid #ddd;
+  }
+
+  nav ul li a {
+    padding: 1rem 2rem;
+    font-size: 130%;
+    color: #1e3a5f;
+  }
+
+  nav ul li a:hover {
+    background-color: #ffcc70;
+    color: #000;
+  }
+
+  #menu:checked + ul {
+    max-height: 350px; /* slightly taller */
+  }
+}
   nav ul li a:hover {
     background-color: #f0f4f8; /* Background color when hovering over item */
     color: #2f6f91; /* Text color when hovering */
